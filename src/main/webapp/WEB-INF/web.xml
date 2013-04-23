@@ -10,4 +10,12 @@
 		<servlet-name>TestServlet</servlet-name>
 		<url-pattern>/ajax/TestServlet</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>bookServlet</servlet-name>
+		<servlet-class>com.book.servlet.BookServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>bookServlet</servlet-name>
+		<url-pattern>/ajax/books</url-pattern>
+	</servlet-mapping>
 </web-app>

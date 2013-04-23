@@ -1,4 +1,14 @@
 jQuery(document).ready(function() {
+	jQuery.get("/web-development/ajax/books", function(data, status) {
+		var domParser = new  DOMParser();
+        var xmlDoc = domParser.parseFromString(data,'text/xml');
+        var elements = xmlDoc.getElementsByTagName("book");
+		for (var i = 0; i < elements.length; i++) {
+			var name = elements[i].getElementsByTagName("name")[0].firstChild.nodeValue;
+			var age = elements[i].getElementsByTagName("age")[0].firstChild.nodeValue;
+			alert(name+" "+age);
+		}
+	});
 	jQuery("button").click(function() {
 		jQuery.get("/web-development/ajax/TestServlet?name=Daniel", function(data, status) {
 			jQuery("#myDiv").text(data);

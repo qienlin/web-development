@@ -3,4 +3,11 @@
   <groupId>com.research</groupId>
   <artifactId>web-development</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.apache.derby</groupId>
+  		<artifactId>derby</artifactId>
+  		<version>10.10.1.1</version>
+  	</dependency>
+  </dependencies>
 </project>
