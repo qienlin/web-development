@@ -9,8 +9,7 @@ package com.library.util;
  */
 public class JdbcHelper {
 
-	public static void a() {
+	public static void getConnection() {
 
 	}
-
 }

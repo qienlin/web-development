@@ -1,6 +1,7 @@
 /target
 *.class
 /myDB
+derby.log
 
 # Package Files #
 *.jar
