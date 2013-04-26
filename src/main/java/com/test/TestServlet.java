@@ -22,7 +22,12 @@ public class TestServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		String name = req.getParameter("name");
+		String password = req.getParameter("password");
+		System.out.println(name + " " + password);
 		PrintWriter out = res.getWriter();
-		out.write("Hello " + name);
+		for (int i = 0; i < 150000; i++) {
+			System.out.println(i);
+		}
+		out.write("Hello " + name + " " + password);
 	}
 }

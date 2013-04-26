@@ -1,0 +1,106 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	color: #333333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	text-align: left;
+}
+
+body {
+	background-color: #FFFFFF;
+}
+
+#container {
+	margin: 0 auto;
+	width: 980px;
+}
+
+#header {
+	background-color: pink;
+	margin-top: 10px;
+	min-height: 40px;
+	border-radius: 4px 4px 4px 4px;
+}
+
+#nav {
+	background-color: #FAFAFA;
+	background-image: linear-gradient(to bottom, #FFFFFF, #F2F2F2);
+	background-repeat: repeat-x;
+	border: 1px solid #D4D4D4;
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+	padding-left: 20px;
+	padding-right: 20px;
+	overflow: hidden;
+}
+
+#navbar {
+	list-style: none;
+	float: left;
+}
+
+#navbar>li {
+	float: left;
+	line-height: 20px;
+}
+
+#navbar>li>a {
+	padding: 10px 15px;
+	display: block;
+	text-decoration: none;
+}
+
+#content {
+	margin-top: 20px;
+	min-height: 400px;
+	overflow: hidden;
+	min-height: 400px;
+}
+
+#menu {
+	float: left;
+	width: 20%;
+}
+
+#mainContent {
+	float: left;
+	width: 80%;
+}
+
+#books {
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+#bookTable {
+	background-color: #F9F9F9;
+	width: 100%;
+	margin-bottom: 10px;
+	border-collapse: collapse;
+	visibility: hidden;
+}
+
+#bookTable td,th {
+	border-top: 1px solid #DDDDDD;
+	padding: 3px 10px;
+	line-height: 20px;
+}
+
+#pagingButton {
+	float: right;
+}
+
+a:BEFORE {
+	text-decoration: none;
+}
+
+a:HOVER {
+	text-decoration: underline;
+}
+
+#footer {
+	text-align: center;
+}

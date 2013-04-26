@@ -1,4 +1,10 @@
 jQuery(document).ready(function() {
+	jQuery("#loading").html("Loading...");
+	jQuery(this).load("/web-development/ajax/TestServlet","name=Daniel&password=Elim",function(data){
+		alert(data);
+		jQuery("#loading").remove();
+		jQuery("#bookTable").css("visibility","visible");
+	});
 	jQuery.get("/web-development/ajax/books", function(data, status) {
 		var domParser = new  DOMParser();
         var xmlDoc = domParser.parseFromString(data,'text/xml');
@@ -6,13 +12,20 @@ jQuery(document).ready(function() {
 		for (var i = 0; i < elements.length; i++) {
 			var name = elements[i].getElementsByTagName("name")[0].firstChild.nodeValue;
 			var age = elements[i].getElementsByTagName("age")[0].firstChild.nodeValue;
-			alert(name+" "+age);
+			//alert(name+" "+age);
 		}
 	});
 	jQuery("button").click(function() {
 		jQuery.get("/web-development/ajax/TestServlet?name=Daniel", function(data, status) {
 			jQuery("#myDiv").text(data);
 		});
+	});
+	
+	jQuery("#previous").click(function(){
+		alert("Previous");
+	});
+	jQuery("#next").click(function(){
+		alert("next");
 	});
 });
 
