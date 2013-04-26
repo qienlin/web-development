@@ -1,6 +1,6 @@
 /target
 *.class
-/myDB
+/library
 derby.log
 
 # Package Files #
