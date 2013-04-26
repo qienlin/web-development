@@ -5,6 +5,7 @@ package com.book.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +26,15 @@ public class BookServlet extends HttpServlet {
 			throws ServletException, IOException {
 		BookService bookService = new BookService();
 		PrintWriter out = res.getWriter();
-		out.write(bookService.booksToXml());
+		try {
+			out.write(bookService.booksToXml(req.getParameter("page")));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			Thread.sleep(700);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 }

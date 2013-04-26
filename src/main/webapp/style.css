@@ -87,6 +87,7 @@ body.loaded {
 	margin-bottom: 10px;
 	border-collapse: collapse;
 	visibility: hidden;
+	min-height: 800px;
 }
 
 #bookTable td,th {

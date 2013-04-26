@@ -3,6 +3,7 @@
  */
 package com.book.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.book.model.Book;
@@ -12,5 +13,6 @@ import com.book.model.Book;
  * 
  */
 public interface IBookDao {
-	public List<Book> getbooks();
+	public List<Book> getbooks(String page, String countPerPage)
+			throws SQLException;
 }

@@ -24,7 +24,7 @@ public class TestServlet extends HttpServlet {
 		String page = req.getParameter("page");
 		PrintWriter out = res.getWriter();
 		for (int i = 0; i < 100000; i++) {
-			System.out.println(i);
+//			System.out.println(i);
 		}
 		out.write("Page: " + page);
 	}

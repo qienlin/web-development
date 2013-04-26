@@ -10,7 +10,8 @@ package com.book.model;
 public class Book {
 	private int id;
 	private String name;
-	private String age;
+	private String price;
+	private String isbn;
 
 	/**
 	 * @return the id
@@ -43,17 +44,32 @@ public class Book {
 	}
 
 	/**
-	 * @return the age
+	 * @return the price
 	 */
-	public String getAge() {
-		return age;
+	public String getPrice() {
+		return price;
 	}
 
 	/**
-	 * @param age
-	 *            the age to set
+	 * @param price
+	 *            the price to set
 	 */
-	public void setAge(String age) {
-		this.age = age;
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	/**
+	 * @return the isbn
+	 */
+	public String getIsbn() {
+		return isbn;
+	}
+
+	/**
+	 * @param isbn
+	 *            the isbn to set
+	 */
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 }

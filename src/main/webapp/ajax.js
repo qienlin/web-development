@@ -1,21 +1,5 @@
-   jQuery(document).ready(function() {
+jQuery(document).ready(function() {
 	loadPagingBooks(jQuery("#currentPage").text());
-//	jQuery.get("/web-development/ajax/books", function(data, status) {
-//		var domParser = new  DOMParser();
-//        var xmlDoc = domParser.parseFromString(data,'text/xml');
-//        var elements = xmlDoc.getElementsByTagName("book");
-//		for (var i = 0; i < elements.length; i++) {
-////			var name = elements[i].getElementsByTagName("name")[0].firstChild.nodeValue;
-////			var age = elements[i].getElementsByTagName("age")[0].firstChild.nodeValue;
-//			//alert(name+" "+age);
-//		}
-//	});
-	jQuery("button").click(function() {
-		jQuery.get("/web-development/ajax/TestServlet?name=Daniel", function(data, status) {
-			jQuery("#myDiv").text(data);
-		});
-	});
-	
 	jQuery("#previous").click(function(){
 		loadPagingBooks(parseInt(jQuery("#currentPage").text()) - 1);
 	});
@@ -25,17 +9,35 @@
 });
 
 function loadPagingBooks(page) {
+	jQuery("#bookTable tbody tr:not(:first)").remove();
 	jQuery("#bookTable").css("visibility", "hidden");
 	jQuery("body").removeClass("loaded");
 	jQuery.ajax({
-		url : "/web-development/ajax/TestServlet",
+		url : "/web-development/ajax/books",
 		data : {
 			"page" : page
 		},
 		type : "POST",
-		timeout : 1500,
+		timeout : 5000,
 		success : function(data) {
-//			 alert(data);
+			jQuery("#currentPage").text(new DOMParser().parseFromString(data,'text/xml').getElementsByTagName("page")[0].firstChild.nodeValue);
+			var totalPages = new DOMParser().parseFromString(data,'text/xml').getElementsByTagName("totalPages")[0].firstChild.nodeValue;
+			jQuery("#next").show();
+			jQuery("#previous").show();
+			if(parseInt(jQuery("#currentPage").text()) <= 1){
+				jQuery("#previous").hide();
+			}else if(parseInt(jQuery("#currentPage").text()) >= parseInt(totalPages)){
+				jQuery("#next").hide();
+			}
+			var elements = new DOMParser().parseFromString(data,'text/xml').getElementsByTagName("book");
+			for (var i = 0; i < elements.length; i++) {
+				var tr = jQuery("#bookTable tbody tr:first").clone().show();
+				jQuery(tr).find("td.id").html(elements[i].getElementsByTagName("id")[0].firstChild.nodeValue);
+				jQuery(tr).find("td.name").html(elements[i].getElementsByTagName("name")[0].firstChild.nodeValue);
+				jQuery(tr).find("td.price").html(elements[i].getElementsByTagName("price")[0].firstChild.nodeValue);
+				jQuery(tr).find("td.isbn").html(elements[i].getElementsByTagName("isbn")[0].firstChild.nodeValue);
+				jQuery("tbody").append(tr);
+			}
 			jQuery("body").addClass("loaded");
 			jQuery("#bookTable").css("visibility", "visible");
 		},

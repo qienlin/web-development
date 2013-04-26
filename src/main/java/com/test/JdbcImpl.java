@@ -26,11 +26,11 @@ public class JdbcImpl {
 			SQLException {
 		Class.forName(EmbeddedDriver.class.getName());
 		Connection conn = DriverManager.getConnection(
-				"jdbc:derby:myDB;create=true", "root", "root");
+				"jdbc:derby:library;create=true", "root", "root");
 		// String sql =
 		// "create table book(id integer,name varchar(50),age varchar(3))";
 		// String sql = "insert into book values(2,'Elim','20')";
-		String sql = "select * from book";
+		String sql = "INSERT INTO book VALUES(7,'Lucene in Action','42','234324234')";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.execute();
 		ResultSet rs = stmt.getResultSet();
