@@ -21,13 +21,11 @@ public class TestServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		String name = req.getParameter("name");
-		String password = req.getParameter("password");
-		System.out.println(name + " " + password);
+		String page = req.getParameter("page");
 		PrintWriter out = res.getWriter();
-		for (int i = 0; i < 150000; i++) {
+		for (int i = 0; i < 100000; i++) {
 			System.out.println(i);
 		}
-		out.write("Hello " + name + " " + password);
+		out.write("Page: " + page);
 	}
 }
