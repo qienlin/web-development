@@ -9,6 +9,7 @@ jQuery(document).ready(function() {
 });
 
 function loadPagingBooks(page) {
+	jQuery("#pagingButton").hide();
 	jQuery("#bookTable tbody tr:not(:first)").remove();
 	jQuery("#bookTable").css("visibility", "hidden");
 	jQuery("body").removeClass("loaded");
@@ -23,12 +24,12 @@ function loadPagingBooks(page) {
 			jQuery("#currentPage").text(new DOMParser().parseFromString(data,'text/xml').getElementsByTagName("page")[0].firstChild.nodeValue);
 			var totalPages = new DOMParser().parseFromString(data,'text/xml').getElementsByTagName("totalPages")[0].firstChild.nodeValue;
 			jQuery("#totalPage").text(totalPages);
-			jQuery("#next").show();
-			jQuery("#previous").show();
+			jQuery("#next").css("visibility","visible");
+			jQuery("#previous").css("visibility","visible");
 			if(parseInt(jQuery("#currentPage").text()) <= 1){
-				jQuery("#previous").hide();
+				jQuery("#previous").css("visibility","hidden");
 			}else if(parseInt(jQuery("#currentPage").text()) >= parseInt(totalPages)){
-				jQuery("#next").hide();
+				jQuery("#next").css("visibility","hidden");
 			}
 			var elements = new DOMParser().parseFromString(data,'text/xml').getElementsByTagName("book");
 			for (var i = 0; i < elements.length; i++) {
@@ -41,6 +42,7 @@ function loadPagingBooks(page) {
 			}
 			jQuery("body").addClass("loaded");
 			jQuery("#bookTable").css("visibility", "visible");
+			jQuery("#pagingButton").show();
 		},
 		error : function() {
 			jQuery("body").addClass("loaded");

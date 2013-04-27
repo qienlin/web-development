@@ -1,3 +1,4 @@
+
 @CHARSET "UTF-8";
 
 * {
@@ -75,6 +76,10 @@ body.loaded {
 #mainContent {
 	float: left;
 	width: 80%;
+}
+
+#searchBar{
+	margin-bottom: 7px;
 }
 
 #books {
