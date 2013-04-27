@@ -22,6 +22,7 @@ function loadPagingBooks(page) {
 		success : function(data) {
 			jQuery("#currentPage").text(new DOMParser().parseFromString(data,'text/xml').getElementsByTagName("page")[0].firstChild.nodeValue);
 			var totalPages = new DOMParser().parseFromString(data,'text/xml').getElementsByTagName("totalPages")[0].firstChild.nodeValue;
+			jQuery("#totalPage").text(totalPages);
 			jQuery("#next").show();
 			jQuery("#previous").show();
 			if(parseInt(jQuery("#currentPage").text()) <= 1){

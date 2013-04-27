@@ -25,10 +25,11 @@ body.loaded {
 }
 
 #header {
-	background-color: pink;
+	background-color: #E6E6FA;
 	margin-top: 10px;
-	min-height: 40px;
+	min-height: 50px;
 	border-radius: 4px 4px 4px 4px;
+	padding-left: 37px;
 }
 
 #nav {
@@ -87,7 +88,6 @@ body.loaded {
 	margin-bottom: 10px;
 	border-collapse: collapse;
 	visibility: hidden;
-	min-height: 800px;
 }
 
 #bookTable td,th {
@@ -108,6 +108,8 @@ a:HOVER {
 	text-decoration: underline;
 }
 
-#footer {
+#footer p {
 	text-align: center;
+	color: #666666;
+	font: 12px artial;
 }
